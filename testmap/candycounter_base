@@ -1,0 +1,7 @@
+// simple.js (http://spelprogrammering.nu/simple.js")
+
+  var candycounter = {x:0, y:0};
+  var colon = {x:40, y:27.5, size:25, text:":", color:"black"};
+  
+  picture(candycounter.x, candycounter.y, "https://raw.githubusercontent.com/lucas131/platformer/master/graphic/gui/candy_counter.png");
+  text(colon.x, colon.y, colon.size, colon.text, colon.color)
