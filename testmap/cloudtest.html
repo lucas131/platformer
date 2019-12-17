@@ -1,0 +1,63 @@
+<script src="https://koda.nu/simple.js">
+
+function cloud(startX, startY, xSpeed, pic)
+  {
+  this.x = startX;
+  this.y = startY;
+  this.xSpeed = xSpeed;
+  this.pic= pic
+  
+  
+
+ 
+  this.update = function()
+  {
+  if (keyboard.d) {this.x += this.xSpeed;}
+  if (keyboard.a) {this.x -= this.xSpeed;}
+
+  picture(this.x, this.y, this.pic);
+    
+      if(this.x < -125)
+    {
+      this.x = totalWidth + random(100, 150)
+      this.y = random(10, totalHeight/3)
+      this.xSpeed = random(-3, -4.5)
+      }
+    
+    
+          if(this.x > totalWidth + 551)
+    {
+      this.x = -random(100, 150)
+      this.y = random(10, totalHeight/3)
+      this.xSpeed = random(-3, -4.5)
+      }
+    
+    
+    
+  
+  };
+  }
+
+ var clouds = []
+ var cloudtexture = "https://raw.githubusercontent.com/lucas131/platformer/master/graphic/bg/Cloud.png"
+
+ clouds.push(new cloud(totalWidth + random(50, 550), random(10, totalHeight/3), -3, cloudtexture));
+  clouds.push(new cloud(totalWidth + random(50, 550), random(10, totalHeight/3), -3, cloudtexture));
+ clouds.push(new cloud(totalWidth + random(50, 550), random(10, totalHeight/3), -3, cloudtexture));
+  
+  
+  function update()
+  {
+  /*  if(cloud.x < 10)
+    {
+      cloud.x = totalWidth - 10
+      }
+    */
+      
+    
+    clearScreen();
+for (var i = 0; i < clouds.length; i++)
+    clouds[i].update();
+  }
+   
+</script>
